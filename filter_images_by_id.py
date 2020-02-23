@@ -33,7 +33,7 @@ def main():
 	# read the img_ids which are contained in a csv file
 	img_ids = read_img_ids(sys.argv[1])
 
-	gather_imgs_by_ids(img_ids, sys.argv[2], sys.argv[3] + "_images/")
+	gather_imgs_by_ids(img_ids, sys.argv[2], "filtered_imgs/{}_imgs".format(sys.argv[3]))
 
 
 if __name__ == '__main__':
