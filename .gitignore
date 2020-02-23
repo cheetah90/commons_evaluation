@@ -1,4 +1,4 @@
 .idea/
 filtered_imgs/
-img_ids.csv
+*.csv
 raw_images/
