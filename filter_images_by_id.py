@@ -15,7 +15,7 @@ def prepare_folders(dest_dir):
 	shutil.rmtree(dest_dir, ignore_errors=True)
 
 	# create folder
-	Path(dest_dir).mkdir(exist_ok=True)
+	Path(dest_dir).mkdir(parents=True, exist_ok=True)
 
 
 def gather_imgs_by_ids(img_ids, root_dir, dest_dir):
