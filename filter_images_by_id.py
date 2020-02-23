@@ -6,7 +6,7 @@ import sys
 def read_img_ids(img_ids_file_name):
 	with open(img_ids_file_name) as f:
 		img_ids = f.readlines()
-	img_ids = [id.strip() for id in img_ids]
+	img_ids = [one_id.strip() for one_id in img_ids]
 	return img_ids
 
 
@@ -22,9 +22,15 @@ def gather_imgs_by_ids(img_ids, root_dir, dest_dir):
 	# prepare the destination folder
 	prepare_folders(dest_dir)
 
+	# counter
+	counter = 0
+
 	# search only jpg files
 	root_dir_path = Path(root_dir)
 	for f in root_dir_path.rglob("*"):
+		counter += 1
+		if counter % 10000 == 0:
+			print("{} files scanned".format(counter))
 		if f.is_file() and f.stem in img_ids:
 			shutil.copy(f, dest_dir)
 
